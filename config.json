@@ -1,0 +1,42 @@
+{
+    "room": "Borealise",
+    "author": "Ult",
+    "css": "https://cdn.jsdelivr.net/gh/AfterWorld/borealise-room@main/style.css",
+    "rules": {
+        "allowAutowoot": true,
+        "allowAutojoin": true,
+        "allowAutorespond": true
+    },
+    "ccc": {
+        "owner": null,
+        "sub": null,
+        "host": null,
+        "cohost": null,
+        "manager": null,
+        "bouncer": null,
+        "rdj": null,
+        "friend": null,
+        "user": null
+    },
+    "images": {
+        "background": "https://cdn.jsdelivr.net/gh/AfterWorld/pi@master/images/background/2k14minecraft.jpg",
+        "badges": {
+            "owner": null,
+            "host": null,
+            "cohost": null,
+            "manager": null,
+            "bouncer": null,
+            "rdj": null,
+            "sub": null
+        }
+    },
+    "autocomplete": null,
+    "emotes": null,
+    "event": {
+        "banner": null,
+        "date": null,
+        "description": null
+    }
+}
+
+
