@@ -19,7 +19,7 @@
         "user": null
     },
     "images": {
-        "background": "https://cdn.jsdelivr.net/gh/AfterWorld/pi@master/images/background/2k14minecraft.jpg",
+        "background": "https://cdn.jsdelivr.net/gh/AfterWorld/borealise-room@main/OPbooth.png",
         "badges": {
             "owner": null,
             "host": "https://cdn.jsdelivr.net/gh/AfterWorld/pi@master/images/chat/rank_host.png",
@@ -29,7 +29,7 @@
             "rdj": "https://cdn.jsdelivr.net/gh/AfterWorld/pi@master/images/chat/rank_dj.png",
             "sub": null
         }
-    }
+    },
     "autocomplete": null,
     "emotes": null,
     "event": {
@@ -38,5 +38,3 @@
         "description": null
     }
 }
-
-
