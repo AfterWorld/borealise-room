@@ -213,3 +213,14 @@ a:hover { color: var(--op-gold) !important; }
 
 /* ── SELECTION ── */
 ::selection { background: rgba(240,192,64,0.25) !important; color: var(--op-white) !important; }
+
+/* ── INPUT TEXT FIX ── */
+.chat-input__field,
+.chat-input__field input,
+.chat-input__field textarea,
+input[class*="chat"],
+textarea[class*="chat"] {
+  color: #f4ede0 !important;
+  -webkit-text-fill-color: #f4ede0 !important;
+  caret-color: #f0c040 !important;
+}
