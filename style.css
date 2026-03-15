@@ -1,226 +1,358 @@
 /* ================================================
-   OPC Music Room — One Piece Theme
+   BOREALISE ROOM — One Piece Theme
+   Author: NiceATC structure · One Piece aesthetic
    ================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap');
+/* ── Google Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Pirata+One&family=Nunito:wght@400;600;700&display=swap');
 
-/* ── Variables ── */
+/* ══════════════════════════════════════════════
+   CSS VARIABLES — One Piece Palette
+   ══════════════════════════════════════════════ */
 :root {
-  --op-red:       #c0392b;
-  --op-gold:      #f0c040;
-  --op-navy:      #0d1b2e;
-  --op-navy-mid:  #1a2f4a;
-  --op-sky:       #4fa3d1;
-  --op-white:     #f4ede0;
-  --op-beige:     #e8d9b5;
+  --op-red:        #c0392b;
+  --op-gold:       #f0c040;
+  --op-gold-light: #f7df8a;
+  --op-navy:       #0d1b2e;
+  --op-navy-mid:   #1a2f4a;
+  --op-navy-light: #243b55;
+  --op-ocean:      #1a3a5c;
+  --op-sky:        #4fa3d1;
+  --op-white:      #f4ede0;
+  --op-beige:      #e8d9b5;
+  --op-shadow:     rgba(0, 0, 0, 0.65);
+  --op-glow-gold:  0 0 10px rgba(240, 192, 64, 0.6);
+  --op-glow-red:   0 0 10px rgba(192, 57, 43, 0.5);
 }
 
-/* ── CHAT BACKGROUND ── */
-.chat-message-list.app-chat__messages {
-  background: linear-gradient(160deg, rgba(13,27,46,0.92) 0%, rgba(20,40,65,0.88) 100%) !important;
-  border: 1px solid rgba(240,192,64,0.15) !important;
-  border-radius: 6px !important;
-  backdrop-filter: blur(6px) !important;
-  scrollbar-width: thin !important;
-  scrollbar-color: var(--op-gold) var(--op-navy) !important;
-}
-
-.chat-message-list.app-chat__messages::-webkit-scrollbar { width: 4px; }
-.chat-message-list.app-chat__messages::-webkit-scrollbar-thumb { background: var(--op-gold); border-radius: 4px; }
-.chat-message-list.app-chat__messages::-webkit-scrollbar-track { background: var(--op-navy); }
-
-/* ── MESSAGE ROWS ── */
-.chat-message-list__group {
-  padding: 4px 8px !important;
-  border-radius: 4px !important;
-  transition: background 0.15s ease !important;
-  border-bottom: 1px solid rgba(240,192,64,0.05) !important;
-}
-
-.chat-message-list__group:hover {
-  background: rgba(240,192,64,0.05) !important;
-}
-
-/* Mention highlight */
-.chat-message-list__group--mention {
-  background: rgba(240,192,64,0.07) !important;
-  border-left: 2px solid var(--op-gold) !important;
-}
-
-/* ── USERNAME BASE ── */
-.chat-message-list__username {
-  font-family: 'Cinzel', serif !important;
-  font-weight: 600 !important;
-  font-size: 0.8em !important;
-  letter-spacing: 0.03em !important;
-  margin-right: 5px !important;
-  cursor: pointer !important;
-}
-
-/* ── HOST — Pirate King 👑 ──
-   Target the row that contains a host badge */
-.chat-message-list__group:has(.chat-message-list__badge--host) .chat-message-list__username {
-  color: #ef4444 !important;
-  text-shadow: 0 0 10px rgba(239,68,68,0.6), 0 0 20px rgba(239,68,68,0.3) !important;
-  font-size: 0.85em !important;
-}
-
-.chat-message-list__group:has(.chat-message-list__badge--host) .chat-message-list__text {
-  color: var(--op-white) !important;
-}
-
-.chat-message-list__group:has(.chat-message-list__badge--host) {
-  border-left: 2px solid rgba(239,68,68,0.5) !important;
-  background: rgba(239,68,68,0.04) !important;
-}
-
-/* ── COHOST — First Mate ── */
-.chat-message-list__group:has(.chat-message-list__badge--cohost) .chat-message-list__username {
-  color: var(--op-sky) !important;
-  text-shadow: 0 0 8px rgba(79,163,209,0.5) !important;
-}
-
-.chat-message-list__group:has(.chat-message-list__badge--cohost) {
-  border-left: 2px solid rgba(79,163,209,0.4) !important;
-}
-
-/* ── BOUNCER — Swordsman ── */
-.chat-message-list__group:has(.chat-message-list__badge--bouncer) .chat-message-list__username {
-  color: #a78bfa !important;
-  text-shadow: 0 0 8px rgba(167,139,250,0.4) !important;
-}
-
-.chat-message-list__group:has(.chat-message-list__badge--bouncer) {
-  border-left: 2px solid rgba(167,139,250,0.35) !important;
-}
-
-/* ── MANAGER / BOT ── */
-.chat-message-list__group:has(.chat-message-list__badge--manager) .chat-message-list__username {
-  color: #22c55e !important;
-  text-shadow: 0 0 8px rgba(34,197,94,0.4) !important;
-}
-
-.chat-message-list__group:has(.chat-message-list__badge--manager) {
-  border-left: 2px solid rgba(34,197,94,0.25) !important;
-  opacity: 0.92 !important;
-}
-
-/* ── GLOBAL OWNER (platform owner crown) ── */
-.chat-message-list__group:has(.chat-message-list__badge--owner) .chat-message-list__username {
-  color: #a855f7 !important;
-  text-shadow: 0 0 10px rgba(168,85,247,0.5) !important;
-}
-
-.chat-message-list__group:has(.chat-message-list__badge--owner) {
-  border-left: 2px solid rgba(168,85,247,0.4) !important;
-}
-
-/* ── GLOBAL ADMIN (platform admin shield) ── */
-.chat-message-list__group:has(.chat-message-list__badge--admin) .chat-message-list__username {
-  color: #ef4444 !important;
-  text-shadow: 0 0 10px rgba(239,68,68,0.5) !important;
-}
-
-/* ── REGULAR MEMBER ── */
-.chat-message-list__username {
-  color: var(--op-beige) !important;
-}
-
-/* ── MESSAGE TEXT ── */
-.chat-message-list__text {
-  font-family: 'Nunito', sans-serif !important;
-  font-size: 0.88em !important;
-  color: var(--op-beige) !important;
-  line-height: 1.5 !important;
-  word-break: break-word !important;
-}
-
-/* ── TIMESTAMP ── */
-.chat-message-list__time {
-  font-size: 0.68em !important;
-  color: rgba(240,192,64,0.35) !important;
-  font-family: 'Cinzel', serif !important;
-}
-
-/* ── @MENTIONS ── */
-.chat-message-list__mention {
-  color: var(--op-gold) !important;
-  font-weight: 700 !important;
-  background: rgba(240,192,64,0.1) !important;
-  padding: 0 3px !important;
-  border-radius: 3px !important;
-}
-
-.chat-message-list__mention--self {
-  color: #ef4444 !important;
-  background: rgba(239,68,68,0.12) !important;
-}
-
-/* ── SYSTEM MESSAGES ── */
-.chat-message-list__group--system {
-  text-align: center !important;
-  border-left: none !important;
-  background: transparent !important;
-}
-
-.chat-message-list__system {
-  color: rgba(240,192,64,0.5) !important;
-  font-style: italic !important;
-  font-size: 0.78em !important;
-}
-
-/* ── AVATAR ── */
-.chat-message-list__avatar {
-  border: 1.5px solid rgba(240,192,64,0.3) !important;
-  border-radius: 50% !important;
-  box-shadow: 0 0 6px rgba(240,192,64,0.15) !important;
-}
-
-/* ── CHAT INPUT ── */
-.chat-input__field {
-  background: rgba(13,27,46,0.95) !important;
-  border: 1px solid rgba(240,192,64,0.25) !important;
-  border-radius: 6px !important;
-  color: var(--op-white) !important;
-  font-family: 'Nunito', sans-serif !important;
-  font-size: 0.9em !important;
-  transition: border-color 0.2s, box-shadow 0.2s !important;
-}
-
-.chat-input__field:focus {
-  border-color: var(--op-gold) !important;
-  box-shadow: 0 0 10px rgba(240,192,64,0.25) !important;
-  outline: none !important;
-}
-
-.chat-input__field::placeholder {
-  color: rgba(244,237,224,0.3) !important;
-  font-style: italic !important;
-}
-
-/* ── SCROLLBARS (global) ── */
+/* ══════════════════════════════════════════════
+   GLOBAL RESET & BODY
+   ══════════════════════════════════════════════ */
 * {
-  scrollbar-width: thin !important;
-  scrollbar-color: rgba(240,192,64,0.35) transparent !important;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-*::-webkit-scrollbar { width: 4px; height: 4px; }
-*::-webkit-scrollbar-thumb { background: rgba(240,192,64,0.35); border-radius: 4px; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--op-navy);
+  color: var(--op-white);
+  overflow-x: hidden;
+}
+
+/* ══════════════════════════════════════════════
+   BACKGROUND OVERLAY
+   Layered sea texture + subtle vignette
+   ══════════════════════════════════════════════ */
+#app,
+.app-container {
+  position: relative;
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+#app::before,
+.app-container::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at center, transparent 40%, rgba(5, 10, 20, 0.75) 100%),
+    linear-gradient(180deg, rgba(13, 27, 46, 0.45) 0%, rgba(13, 27, 46, 0.25) 50%, rgba(13, 27, 46, 0.6) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ══════════════════════════════════════════════
+   CHAT — MESSAGES
+   ══════════════════════════════════════════════ */
+#chat-messages,
+.cm,
+.chat-messages {
+  background: linear-gradient(
+    160deg,
+    rgba(13, 27, 46, 0.88) 0%,
+    rgba(26, 47, 74, 0.82) 100%
+  );
+  border: 1px solid rgba(240, 192, 64, 0.18);
+  border-radius: 8px;
+  backdrop-filter: blur(6px);
+  padding: 8px 4px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--op-gold) var(--op-navy);
+}
+
+#chat-messages::-webkit-scrollbar,
+.chat-messages::-webkit-scrollbar {
+  width: 5px;
+}
+#chat-messages::-webkit-scrollbar-thumb,
+.chat-messages::-webkit-scrollbar-thumb {
+  background: var(--op-gold);
+  border-radius: 4px;
+}
+#chat-messages::-webkit-scrollbar-track,
+.chat-messages::-webkit-scrollbar-track {
+  background: var(--op-navy);
+}
+
+/* Individual message rows */
+.message,
+.cm .msg,
+.chat-message {
+  padding: 5px 10px;
+  border-radius: 6px;
+  transition: background 0.15s ease;
+  line-height: 1.5;
+}
+
+.message:hover,
+.cm .msg:hover,
+.chat-message:hover {
+  background: rgba(240, 192, 64, 0.07);
+}
+
+/* Username inside chat */
+.message .un,
+.chat-message .username,
+.cm .un {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  font-size: 0.82em;
+  color: var(--op-gold);
+  text-shadow: var(--op-glow-gold);
+  margin-right: 5px;
+}
+
+/* Message text */
+.message .text,
+.chat-message .text,
+.cm .text {
+  font-size: 0.88em;
+  color: var(--op-beige);
+  word-break: break-word;
+}
+
+/* Mentions / @highlights */
+.message .mention,
+.chat-message .mention {
+  color: var(--op-red);
+  font-weight: 700;
+  text-shadow: var(--op-glow-red);
+}
+
+/* System / bot messages */
+.message.system,
+.cm .msg.system {
+  color: rgba(240, 192, 64, 0.55);
+  font-style: italic;
+  font-size: 0.8em;
+  text-align: center;
+  padding: 3px 0;
+}
+
+/* Chat input area */
+#chat-input-box,
+.chat-input,
+#chat-input {
+  background: rgba(13, 27, 46, 0.9);
+  border: 1px solid rgba(240, 192, 64, 0.3);
+  border-radius: 6px;
+  color: var(--op-white);
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.9em;
+  padding: 8px 12px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+}
+
+#chat-input-box:focus,
+.chat-input:focus,
+#chat-input:focus {
+  border-color: var(--op-gold);
+  box-shadow: var(--op-glow-gold);
+}
+
+#chat-input-box::placeholder,
+.chat-input::placeholder {
+  color: rgba(244, 237, 224, 0.35);
+  font-style: italic;
+}
+
+/* ══════════════════════════════════════════════
+   BADGES & AVATARS
+   ══════════════════════════════════════════════ */
+
+/* Avatar wrapper */
+.avatar,
+.user-avatar,
+.bm .av {
+  border-radius: 50%;
+  border: 2px solid var(--op-gold);
+  box-shadow: var(--op-glow-gold);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: var(--op-navy-mid);
+}
+
+.avatar:hover,
+.user-avatar:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 16px rgba(240, 192, 64, 0.75);
+}
+
+/* Badge base style */
+.bdg,
+.badge,
+.user-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.65em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 2px 5px;
+  margin-right: 3px;
+  border: 1px solid transparent;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+/* ── Owner — Pirate King ── */
+.bdg.owner,
+.badge-owner {
+  background: linear-gradient(135deg, #8b0000, #c0392b);
+  border-color: var(--op-gold);
+  color: var(--op-gold);
+  text-shadow: 0 0 6px rgba(240,192,64,0.7);
+  box-shadow: 0 0 8px rgba(192, 57, 43, 0.6);
+}
+
+/* ── Host — First Mate ── */
+.bdg.host,
+.badge-host {
+  background: linear-gradient(135deg, #1a3a5c, #243b55);
+  border-color: var(--op-sky);
+  color: var(--op-sky);
+  box-shadow: 0 0 6px rgba(79, 163, 209, 0.4);
+}
+
+/* ── Co-Host — Navigator ── */
+.bdg.cohost,
+.badge-cohost {
+  background: linear-gradient(135deg, #2e5e1e, #3d7a28);
+  border-color: #7ec850;
+  color: #a8e67a;
+  box-shadow: 0 0 6px rgba(126, 200, 80, 0.35);
+}
+
+/* ── Manager — Shipwright ── */
+.bdg.manager,
+.badge-manager {
+  background: linear-gradient(135deg, #5a3a1a, #7a5228);
+  border-color: #c8a055;
+  color: #e8c87a;
+}
+
+/* ── Bouncer — Swordsman ── */
+.bdg.bouncer,
+.badge-bouncer {
+  background: linear-gradient(135deg, #1a1a3a, #2a2a5a);
+  border-color: #7070d0;
+  color: #a0a0ff;
+}
+
+/* ── RDJ — Musician ── */
+.bdg.rdj,
+.badge-rdj {
+  background: linear-gradient(135deg, #3a1a3a, #5a2a5a);
+  border-color: #d070d0;
+  color: #f0a0f0;
+  box-shadow: 0 0 6px rgba(208, 112, 208, 0.35);
+}
+
+/* ── Sub — Nakama ── */
+.bdg.sub,
+.badge-sub {
+  background: linear-gradient(135deg, #0d2a2a, #1a4040);
+  border-color: var(--op-gold-light);
+  color: var(--op-gold-light);
+}
+
+/* ── Friend / User ── */
+.bdg.friend,
+.badge-friend {
+  background: rgba(30, 50, 80, 0.6);
+  border-color: rgba(244, 237, 224, 0.2);
+  color: rgba(244, 237, 224, 0.55);
+}
+
+/* ══════════════════════════════════════════════
+   USER LIST PANEL (light touch)
+   ══════════════════════════════════════════════ */
+#user-list,
+.user-list,
+.bm {
+  background: rgba(13, 27, 46, 0.8);
+  border-left: 1px solid rgba(240, 192, 64, 0.12);
+  backdrop-filter: blur(4px);
+}
+
+.user-list-item,
+.bm .user {
+  padding: 5px 8px;
+  border-radius: 5px;
+  font-size: 0.85em;
+  color: var(--op-beige);
+  transition: background 0.15s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.user-list-item:hover,
+.bm .user:hover {
+  background: rgba(240, 192, 64, 0.08);
+}
+
+/* ══════════════════════════════════════════════
+   SCROLLBARS (global)
+   ══════════════════════════════════════════════ */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(240, 192, 64, 0.4) transparent;
+}
+*::-webkit-scrollbar { width: 5px; height: 5px; }
+*::-webkit-scrollbar-thumb {
+  background: rgba(240, 192, 64, 0.4);
+  border-radius: 4px;
+}
 *::-webkit-scrollbar-track { background: transparent; }
 
-/* ── LINKS ── */
-a { color: var(--op-sky) !important; text-decoration: none !important; }
-a:hover { color: var(--op-gold) !important; }
+/* ══════════════════════════════════════════════
+   LINKS
+   ══════════════════════════════════════════════ */
+a {
+  color: var(--op-sky);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+a:hover {
+  color: var(--op-gold);
+  text-decoration: underline;
+}
 
-/* ── SELECTION ── */
-::selection { background: rgba(240,192,64,0.25) !important; color: var(--op-white) !important; }
-
-/* ── INPUT TEXT FIX ── */
-.chat-input__field,
-.chat-input__field input,
-.chat-input__field textarea,
-input[class*="chat"],
-textarea[class*="chat"] {
-  color: #f4ede0 !important;
-  -webkit-text-fill-color: #f4ede0 !important;
-  caret-color: #f0c040 !important;
+/* ══════════════════════════════════════════════
+   SELECTION
+   ══════════════════════════════════════════════ */
+::selection {
+  background: rgba(240, 192, 64, 0.3);
+  color: var(--op-white);
 }
